@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 
 public class HomePage extends Form {
     private final IElementFactory elementFactory = AqualityServices.getElementFactory();
-    private final ILabel welcomeMessage = elementFactory.getLabel(By.xpath("//p[@class='start__paragraph' and contains(text(), 'welcome')]"), "Welcome Message");
     private final ILink link = elementFactory.getLink(By.cssSelector(".start__link"), "Link");
 
     public HomePage() {
