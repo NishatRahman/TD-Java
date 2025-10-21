@@ -2,7 +2,6 @@ package pages;
 
 import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.IElementFactory;
-import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
