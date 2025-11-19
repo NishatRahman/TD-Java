@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install -DskipTests'
+                bat 'mvn clean install -DskipTests'
             }
         }
 
@@ -28,12 +28,12 @@ pipeline {
             parallel {
                 stage('Regression Suite') {
                     steps {
-                        sh 'mvn test -Dsuite=regression.xml'
+                        bat 'mvn test -Dsuite=regression.xml'
                     }
                 }
                 stage('Smoke Suite') {
                     steps {
-                        sh 'mvn test -Dsuite=smoke.xml'
+                        bat 'mvn test -Dsuite=smoke.xml'
                     }
                 }
                 stage('Compatibility (Java 17)') {
@@ -41,7 +41,7 @@ pipeline {
                         label 'java17'   // Requires a node with JDK17
                     }
                     steps {
-                        sh 'mvn test -Dsuite=regression.xml'
+                        bat 'mvn test -Dsuite=regression.xml'
                     }
                 }
             }
