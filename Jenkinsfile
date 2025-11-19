@@ -48,10 +48,9 @@ pipeline {
             post {
                 always {
                     echo "Publishing TestNG Results"
-                    junit '**/surefire-reports/testng-results.xml'
+                    junit 'target/surefire-reports/*.xml'
 
-                    echo "Archiving raw reports"
-                    archiveArtifacts artifacts: '**/surefire-reports/**', fingerprint: true
+                    archiveArtifacts artifacts: 'target/surefire-reports/*', fingerprint: true
                 }
             }
         }
