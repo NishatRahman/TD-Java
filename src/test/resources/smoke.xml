@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SmokeSuite" verbose="1">
+
+    <test name="SmokeTests">
+        <classes>
+            <!-- Add only SMOKE test classes here -->
+            <class name="tests.UserInterfaceTest"/>
+        </classes>
+    </test>
+
+</suite>
