@@ -51,7 +51,16 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
 
                     archiveArtifacts artifacts: 'target/surefire-reports/*', fingerprint: true
+                    publishHTML([
+                                        reportDir: 'target/surefire-reports',
+                                        reportFiles: 'index.html',
+                                        reportName: 'Test Report',
+                                        keepAll: true,
+                                        allowMissing: false,
+                                        alwaysLinkToLastBuild: true
+                    ])
                 }
+
             }
         }
 
