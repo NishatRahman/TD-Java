@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.9.11'        // Set in Jenkins Global Tool Configuration
-        jdk 'JDK23'           // Or your configured JDK version
+        maven 'Maven 3.9.11'
+        jdk 'JDK23'
     }
 
     environment {
@@ -58,7 +58,6 @@ pipeline {
 
         stage('Generate Allure Report') {
             steps {
-                // Make sure allure plugin is installed on Jenkins
                 allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
             }
         }
@@ -72,13 +71,11 @@ pipeline {
 
         success {
             echo 'Build succeeded!'
-            // Example Slack notification
             // slackSend channel: '#automation', message: "Test pipeline SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
         }
 
         failure {
             echo 'Build failed!'
-            // Example email notification
             emailext to: 'nishatr50@gmail.com',
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                      body: "The build has failed. Check Jenkins for details."
