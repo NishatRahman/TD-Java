@@ -36,14 +36,6 @@ pipeline {
                         bat 'mvn test -Dsuite=smoke.xml'
                     }
                 }
-//                 stage('Compatibility (Java 23)') {
-//                     agent {
-//                         label 'java23'   // Requires a node with JDK17
-//                     }
-//                     steps {
-//                         bat 'mvn test -Dsuite=regression.xml'
-//                     }
-//                 }
             }
             post {
                 always {
